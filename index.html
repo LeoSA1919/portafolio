@@ -259,7 +259,51 @@
         </div>
       </div>
     </section>
-<!-- @sections -->
+    <!-- ===================== 6. CONTACTO ===================== -->
+    <section class="section contact" id="contacto" aria-labelledby="contact-title">
+      <div class="contact__grid">
+        <div class="contact__info">
+          <p class="eyebrow">05 — Contacto</p>
+          <h2 id="contact-title">Hablemos de tu próximo proyecto.</h2>
+          <p class="section__note">Respondo en menos de 48 h. También en <a href="[GITHUB]" target="_blank" rel="noreferrer">GitHub</a> y <a href="[LINKEDIN]" target="_blank" rel="noreferrer">LinkedIn</a>.</p>
+          <a class="contact__email" href="mailto:[CORREO]">[CORREO]</a>
+        </div>
+
+        <!-- Validación propia en js/contact.js (novalidate) y envío real vía Web3Forms -->
+        <form class="form" id="contact-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
+          <!-- Clave de acceso de Web3Forms: reemplazar por la clave real -->
+          <input type="hidden" name="access_key" value="[WEB3FORMS_ACCESS_KEY]">
+          <input type="hidden" name="subject" value="Nuevo mensaje desde el portafolio">
+          <input type="hidden" name="from_name" value="Portafolio de Cesar Miño">
+          <!-- Honeypot anti-spam: debe quedar vacío -->
+          <div class="form__honeypot" aria-hidden="true">
+            <label for="botcheck">No rellenar</label>
+            <input type="checkbox" id="botcheck" name="botcheck" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="name">Nombre</label>
+            <input class="field__input" id="name" name="name" type="text" placeholder="Tu nombre" autocomplete="name" aria-describedby="name-error">
+            <p class="field__error" id="name-error" aria-live="polite"></p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="email">Correo</label>
+            <input class="field__input" id="email" name="email" type="email" placeholder="tu@correo.com" autocomplete="email" aria-describedby="email-error">
+            <p class="field__error" id="email-error" aria-live="polite"></p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="message">Mensaje</label>
+            <textarea class="field__input" id="message" name="message" rows="5" placeholder="Cuéntame sobre el proyecto o la vacante" aria-describedby="message-error"></textarea>
+            <p class="field__error" id="message-error" aria-live="polite"></p>
+          </div>
+
+          <div class="form__actions">
+            <button class="btn btn--primary" id="submit-btn" type="submit">Enviar mensaje</button>
+            <p class="form__status" id="form-status" role="status" aria-live="polite" hidden></p>
+          </div>
+        </form>
+      </div>
+    </section>
   </main>
 
   <!-- ===================== PIE DE PÁGINA ===================== -->
