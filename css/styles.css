@@ -1583,3 +1583,93 @@ select.field__input {
     transition-duration: .01ms !important;
   }
 }
+
+/* ==========================================================================
+   17. Responsive
+   - Escritorio (>=1024px): contenido a 1120px, grids de 2-3 columnas.
+   - Tablet (640-1023px): los grids auto-fit colapsan solos; nav horizontal
+     hasta 860px, luego hamburguesa.
+   - Móvil (<640px): una sola columna; objetivos táctiles de 44px.
+   Los grids usan minmax(min(100%, Npx), 1fr) para no desbordar en móvil.
+   ========================================================================== */
+
+/* --- Menú hamburguesa y nav desplegable (<860px) --- */
+@media (max-width: 859px) {
+  .menu-btn {
+    display: flex;
+  }
+
+  /* El nav pasa a ser un panel bajo la cabecera, oculto hasta abrirse */
+  .nav {
+    display: none;
+    position: absolute;
+    top: var(--header-h);
+    left: 0;
+    right: 0;
+    padding: var(--sp-3) var(--pad-x) var(--sp-4);
+    border-top: 1px solid var(--border);
+    background: var(--bg);
+    animation: fadeUp .2s ease;
+  }
+
+  .nav.is-open {
+    display: block;
+  }
+
+  .nav__list {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--sp-1);
+  }
+
+  .nav__link {
+    display: block;
+    padding: var(--sp-2) 0;
+    font-size: 1rem;
+    color: var(--text);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav__list li:last-child .nav__link {
+    border-bottom: 0;
+  }
+}
+
+/* --- Móvil (<640px) --- */
+@media (max-width: 639px) {
+  /* El panel de tipografía pasa a una columna: separador arriba en vez de a la izquierda */
+  .type-panel__col + .type-panel__col {
+    border-left: 0;
+    border-top: 1px solid var(--border);
+  }
+
+  /* Las métricas se apilan en dos columnas si el espacio es muy justo */
+  .metrics {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 120px), 1fr));
+  }
+
+  /* Botones de acción del hero a ancho completo */
+  .hero__actions .btn {
+    flex: 1 1 160px;
+  }
+
+  /* El pie del modal y del formulario apilan sus botones */
+  .modal__footer .btn {
+    flex: 1 1 100%;
+  }
+
+  .editor__row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- Pantallas muy pequeñas (<380px) --- */
+@media (max-width: 379px) {
+  .theme-toggle__label {
+    display: none;
+  }
+
+  .theme-toggle {
+    padding-left: var(--sp-2);
+  }
+}
