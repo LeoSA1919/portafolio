@@ -128,6 +128,137 @@
       <div class="projects__grid" id="projects-grid" aria-live="polite"></div>
       <p class="projects__empty" id="projects-empty" hidden>// sin proyectos con esa tecnología</p>
     </section>
+    <!-- ===================== 5. DESIGN SYSTEM ===================== -->
+    <section class="section ds" id="design-system" aria-labelledby="ds-title">
+      <div class="section__head">
+        <p class="eyebrow">04 — Design System</p>
+        <h2 id="ds-title">Tokens y componentes</h2>
+        <p class="section__note">Todo lo que ves en este sitio sale de estas variables. Cambia el tema arriba: los tokens se actualizan en vivo.</p>
+      </div>
+
+      <!-- 4.1 Colores: se generan desde PORTFOLIO_DATA.palette -->
+      <div class="ds__block">
+        <h3 class="ds__title"><span class="ds__num">4.1</span>Colores</h3>
+        <ul class="swatches" id="ds-palette" aria-label="Paleta de colores"></ul>
+      </div>
+
+      <!-- 4.2 Tipografía: las muestras NO son h1/h2/h3 reales para no romper la jerarquía de encabezados -->
+      <div class="ds__block">
+        <h3 class="ds__title"><span class="ds__num">4.2</span>Tipografía</h3>
+        <div class="type-panel">
+          <div class="type-panel__col">
+            <div class="type-sample">
+              <p class="type-sample__meta">h1 · Inter 800 · clamp(2.5rem, 6.5vw, 4.75rem) · -0.035em</p>
+              <p class="type-sample__h1">Heading 1</p>
+            </div>
+            <div class="type-sample">
+              <p class="type-sample__meta">h2 · Inter 700 · clamp(1.75rem, 3.2vw, 2.5rem) · -0.025em</p>
+              <p class="type-sample__h2">Heading 2</p>
+            </div>
+            <div class="type-sample">
+              <p class="type-sample__meta">h3 · Inter 600 · 1.25rem · -0.015em</p>
+              <p class="type-sample__h3">Heading 3</p>
+            </div>
+          </div>
+          <div class="type-panel__col">
+            <div class="type-sample">
+              <p class="type-sample__meta">p · Inter 400 · 1rem / 1.7 · --text</p>
+              <p class="type-sample__p">Párrafo de cuerpo. Legible a 16px con interlineado 1.7 para bloques largos.</p>
+            </div>
+            <div class="type-sample">
+              <p class="type-sample__meta">secundario · Inter 400 · .875rem · --muted</p>
+              <p class="type-sample__secondary">Texto secundario para descripciones, metadatos y ayudas.</p>
+            </div>
+            <div class="type-sample">
+              <p class="type-sample__meta">a · --accent → hover --accent-2</p>
+              <p><a href="#design-system">Enlace de texto</a></p>
+            </div>
+            <div class="type-sample">
+              <p class="type-sample__meta">label · JetBrains Mono 500 · .75rem · .12em</p>
+              <p class="eyebrow">Etiqueta mono</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4.3 Espaciado (desde PORTFOLIO_DATA.spacing) + 4.4 Radios y sombra -->
+      <div class="ds__pair">
+        <div class="ds__block">
+          <h3 class="ds__title"><span class="ds__num">4.3</span>Espaciado</h3>
+          <ul class="space-rows ds-card" id="ds-spacing" aria-label="Escala de espaciado"></ul>
+        </div>
+        <div class="ds__block">
+          <h3 class="ds__title"><span class="ds__num">4.4</span>Radios y sombra</h3>
+          <ul class="radii ds-card" aria-label="Radios y sombra">
+            <li class="radii__item"><span class="radii__box radii__box--r1" aria-hidden="true"></span><span class="radii__label">--r-1 .5rem</span></li>
+            <li class="radii__item"><span class="radii__box radii__box--r2" aria-hidden="true"></span><span class="radii__label">--r-2 .75rem</span></li>
+            <li class="radii__item"><span class="radii__box radii__box--r3" aria-hidden="true"></span><span class="radii__label">--r-3 1rem</span></li>
+            <li class="radii__item"><span class="radii__box radii__box--shadow" aria-hidden="true"></span><span class="radii__label">--shadow</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 4.5 Componentes: son las mismas clases usadas en el resto del sitio -->
+      <div class="ds__block">
+        <h3 class="ds__title"><span class="ds__num">4.5</span>Componentes</h3>
+        <div class="ds__components">
+
+          <div class="ds-card">
+            <p class="ds-card__label">Botones</p>
+            <div class="ds__row">
+              <button class="btn btn--primary" type="button">Primario</button>
+              <button class="btn btn--secondary btn--on-surface" type="button">Secundario</button>
+              <button class="btn btn--primary" type="button" disabled>Deshabilitado</button>
+            </div>
+            <p class="ds-card__label">Chip de habilidad</p>
+            <ul class="chips" aria-label="Ejemplos de chip">
+              <li class="chip" title="Avanzado"><span class="chip__icon" aria-hidden="true">Py</span><span>Python</span><span class="chip__level" aria-hidden="true"><span class="chip__level-fill chip__level-fill--3"></span></span><span class="sr-only">nivel avanzado</span></li>
+              <li class="chip" title="Básico"><span class="chip__icon" aria-hidden="true">Ln</span><span>Linux</span><span class="chip__level" aria-hidden="true"><span class="chip__level-fill chip__level-fill--1"></span></span><span class="sr-only">nivel básico</span></li>
+            </ul>
+            <p class="ds-card__label">Etiqueta de tecnología · Filtro</p>
+            <div class="ds__row">
+              <span class="tag">Django</span>
+              <button class="filter is-active" type="button" aria-pressed="true">Activo</button>
+              <button class="filter" type="button" aria-pressed="false">Inactivo</button>
+            </div>
+          </div>
+
+          <div class="ds-card">
+            <p class="ds-card__label">Campos · normal / foco / error</p>
+            <div class="field">
+              <label class="field__label" for="ds-input-normal">Nombre</label>
+              <input class="field__input" id="ds-input-normal" type="text" placeholder="Estado normal">
+            </div>
+            <div class="field">
+              <label class="field__label" for="ds-input-focus">Correo</label>
+              <input class="field__input is-focus" id="ds-input-focus" type="email" placeholder="Estado de foco">
+            </div>
+            <div class="field field--error">
+              <label class="field__label" for="ds-input-error">Correo</label>
+              <input class="field__input" id="ds-input-error" type="email" value="correo-invalido" aria-invalid="true" aria-describedby="ds-input-error-msg">
+              <p class="field__error" id="ds-input-error-msg">Introduce un correo válido</p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="ds-textarea">Mensaje</label>
+              <textarea class="field__input" id="ds-textarea" rows="3" placeholder="Área de texto"></textarea>
+            </div>
+          </div>
+
+          <div class="ds__stack">
+            <div class="ds-card">
+              <p class="ds-card__label">Ventana modal</p>
+              <p class="ds-card__text">Overlay con desenfoque, cierre por Escape, clic fuera o botón. Usada en el detalle de proyecto.</p>
+              <button class="btn btn--secondary btn--on-surface ds__self-start" id="ds-open-modal" type="button">Abrir modal de ejemplo</button>
+            </div>
+            <div class="ds-card">
+              <p class="ds-card__label">Tarjeta de proyecto</p>
+              <p class="ds-card__text">Imagen 16:10, título h3, descripción, etiquetas mono, acciones Detalles / Repo / Demo. Ver <a href="#proyectos">sección 03</a>.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
 <!-- @sections -->
   </main>
 

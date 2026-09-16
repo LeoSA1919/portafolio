@@ -845,6 +845,382 @@ h3 {
 }
 
 /* ==========================================================================
+   10. Design System (galería de tokens y componentes)
+   ========================================================================== */
+.ds {
+  gap: var(--sp-6);
+}
+
+.ds__block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.ds__title {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: 1.125rem;
+}
+
+.ds__num {
+  font-family: var(--font-mono);
+  font-size: .75rem;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+/* Contenedor genérico del design system */
+.ds-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  padding: var(--sp-4);
+  border: 1px solid var(--border);
+  border-radius: var(--r-2);
+  background: var(--surface);
+}
+
+.ds-card__label {
+  font-family: var(--font-mono);
+  font-size: .6875rem;
+  color: var(--muted);
+}
+
+.ds-card__label:not(:first-child) {
+  padding-top: var(--sp-2);
+}
+
+.ds-card__text {
+  font-size: .875rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.ds__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.ds__self-start {
+  align-self: flex-start;
+}
+
+.ds__stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.ds__pair,
+.ds__components {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: var(--sp-4);
+}
+
+.ds__components {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+}
+
+/* 4.1 Paleta */
+.swatches {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 150px), 1fr));
+  gap: var(--sp-2);
+}
+
+.swatch {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--r-2);
+  background: var(--surface);
+}
+
+.swatch__color {
+  height: 64px;
+  border-bottom: 1px solid var(--border);
+}
+
+.swatch__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: var(--sp-2) var(--sp-3);
+}
+
+.swatch__name {
+  font-size: .8125rem;
+  font-weight: 600;
+}
+
+.swatch__token,
+.swatch__values {
+  font-family: var(--font-mono);
+  font-size: .6875rem;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+
+/* 4.2 Tipografía */
+.type-panel {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  border: 1px solid var(--border);
+  border-radius: var(--r-2);
+  background: var(--surface);
+  overflow: hidden;
+}
+
+.type-panel__col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  padding: var(--sp-4);
+}
+
+.type-panel__col + .type-panel__col {
+  border-left: 1px solid var(--border);
+}
+
+.type-sample {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+  min-width: 0;
+}
+
+.type-sample__meta {
+  font-family: var(--font-mono);
+  font-size: .6875rem;
+  line-height: 1.5;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+
+/* Las muestras replican la escala real sin usar etiquetas de encabezado */
+.type-sample__h1 {
+  font-size: clamp(2.5rem, 6.5vw, 4.75rem);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -.035em;
+}
+
+.type-sample__h2 {
+  font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -.025em;
+}
+
+.type-sample__h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -.015em;
+}
+
+.type-sample__p {
+  line-height: 1.7;
+}
+
+.type-sample__secondary {
+  font-size: .875rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+/* 4.3 Espaciado */
+.space-rows {
+  gap: var(--sp-2);
+}
+
+.space-row {
+  display: grid;
+  grid-template-columns: 64px 56px 1fr;
+  align-items: center;
+  gap: var(--sp-3);
+  font-family: var(--font-mono);
+  font-size: .6875rem;
+  color: var(--muted);
+}
+
+.space-row__bar {
+  display: block;
+  height: 12px;
+  border-radius: 2px;
+  background: var(--accent);
+}
+
+/* 4.4 Radios y sombra */
+.radii {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--sp-4);
+}
+
+.radii__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.radii__box {
+  width: 64px;
+  height: 64px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.radii__box--r1 { border-radius: var(--r-1); }
+.radii__box--r2 { border-radius: var(--r-2); }
+.radii__box--r3 { border-radius: var(--r-3); }
+
+.radii__box--shadow {
+  border-radius: var(--r-2);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.radii__label {
+  font-family: var(--font-mono);
+  font-size: .6875rem;
+  color: var(--muted);
+}
+
+/* ==========================================================================
+   11. Contacto (formulario y campos)
+   ========================================================================== */
+.contact__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: var(--sp-5);
+}
+
+.contact__info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.contact__email {
+  font-family: var(--font-mono);
+  font-size: .9375rem;
+  color: var(--text);
+  overflow-wrap: anywhere;
+  transition: color .15s;
+}
+
+.contact__email:hover {
+  color: var(--accent);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  padding: var(--sp-4);
+  border: 1px solid var(--border);
+  border-radius: var(--r-3);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+/* Campo: label en columna + input + hueco reservado para el error */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+}
+
+.field__label {
+  font-size: .8125rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.field__input {
+  width: 100%;
+  height: 44px;
+  padding: 0 var(--sp-3);
+  border: 1px solid var(--border);
+  border-radius: var(--r-1);
+  background: var(--bg);
+  color: var(--text);
+  font-size: .9375rem;
+  outline: none;
+  transition: border-color .15s, box-shadow .15s;
+}
+
+textarea.field__input {
+  height: auto;
+  padding: var(--sp-2) var(--sp-3);
+  line-height: 1.6;
+  resize: vertical;
+}
+
+.field__input:focus,
+.field__input:focus-visible,
+.field__input.is-focus {
+  border-color: var(--accent);
+  box-shadow: var(--ring);
+}
+
+.field--error .field__input,
+.field__input[aria-invalid="true"] {
+  border-color: var(--error);
+  box-shadow: var(--ring-error);
+}
+
+.field__error {
+  min-height: 1em;
+  font-family: var(--font-mono);
+  font-size: .6875rem;
+  line-height: 1.4;
+  color: var(--error);
+}
+
+.form__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-3);
+  padding-top: var(--sp-1);
+}
+
+/* Estado del envío: enviando / enviado / error */
+.form__status {
+  font-family: var(--font-mono);
+  font-size: .75rem;
+  color: var(--muted);
+}
+
+.form__status.is-success {
+  color: var(--accent);
+}
+
+.form__status.is-error {
+  color: var(--error);
+}
+
+.form__status[hidden] {
+  display: none;
+}
+
+/* Campo trampa anti-spam (honeypot): oculto a personas, visible a bots */
+.form__honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+/* ==========================================================================
    12. Pie de página
    ========================================================================== */
 .site-footer {
