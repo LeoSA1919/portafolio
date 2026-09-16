@@ -103,6 +103,31 @@
         </div>
       </div>
     </section>
+    <!-- ===================== 3. HABILIDADES ===================== -->
+    <section class="section skills" id="habilidades" aria-labelledby="skills-title">
+      <div class="section__head">
+        <p class="eyebrow">02 — Habilidades</p>
+        <h2 id="skills-title">Stack y herramientas</h2>
+        <p class="section__note">Nivel indicado por la barra: básico, intermedio, avanzado.</p>
+      </div>
+      <!-- Los grupos de habilidades se generan desde js/data.js (ver main.js) -->
+      <ul class="skills__grid" id="skills-grid" aria-label="Grupos de habilidades"></ul>
+    </section>
+
+    <!-- ===================== 4. PROYECTOS ===================== -->
+    <section class="section projects" id="proyectos" aria-labelledby="projects-title">
+      <div class="projects__head">
+        <div class="section__head">
+          <p class="eyebrow">03 — Proyectos destacados</p>
+          <h2 id="projects-title">Trabajo seleccionado</h2>
+        </div>
+        <!-- Los filtros se derivan de las tecnologías de los proyectos (js/projects.js) -->
+        <div class="filters" id="project-filters" role="group" aria-label="Filtrar proyectos por tecnología"></div>
+      </div>
+      <!-- Las tarjetas <article> se generan desde js/data.js (js/projects.js) -->
+      <div class="projects__grid" id="projects-grid" aria-live="polite"></div>
+      <p class="projects__empty" id="projects-empty" hidden>// sin proyectos con esa tecnología</p>
+    </section>
 <!-- @sections -->
   </main>
 
