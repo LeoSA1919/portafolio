@@ -1,0 +1,64 @@
+/* ==========================================================================
+   variables.css — Design tokens (fuente de verdad)
+   Tema oscuro por defecto en :root; el tema claro SOLO redefine variables.
+   Ningún componente usa colores hardcodeados: todo sale de aquí.
+   ========================================================================== */
+
+:root {
+  /* --- Colores (tema oscuro, por defecto) --- */
+  --bg: #0B0F14;          /* Fondo de página */
+  --surface: #131A22;     /* Tarjetas, contenedores, nav móvil */
+  --text: #E6EDF3;        /* Texto principal */
+  --muted: #8B98A5;       /* Texto secundario, metadatos */
+  --border: #223040;      /* Bordes 1px, separadores, pistas */
+  --accent: #4F8CFF;      /* Acento primario: botones, etiquetas, foco */
+  --accent-2: #A855F7;    /* Secundario: hover de enlaces de texto */
+  --error: #F0546A;       /* Errores de formulario */
+  --on-accent: #0B0F14;   /* Texto sobre acento */
+  --shadow: 0 8px 24px rgba(0, 0, 0, .35);
+
+  /* --- Colores derivados (siempre a partir de los tokens de arriba) --- */
+  --overlay: rgba(0, 0, 0, .6);                                     /* Fondo del modal */
+  --ring: 0 0 0 3px color-mix(in oklab, var(--accent) 25%, transparent);
+  --ring-error: 0 0 0 3px color-mix(in oklab, var(--error) 20%, transparent);
+  --halo: 0 0 0 4px color-mix(in oklab, var(--accent) 25%, transparent);
+  --nav-bg: color-mix(in oklab, var(--bg) 82%, transparent);
+  --stripes-surface: repeating-linear-gradient(135deg, var(--surface) 0 12px, color-mix(in oklab, var(--surface) 60%, var(--bg)) 12px 24px);
+  --stripes-bg: repeating-linear-gradient(135deg, var(--bg) 0 12px, color-mix(in oklab, var(--bg) 60%, var(--surface)) 12px 24px);
+
+  /* --- Tipografía --- */
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* --- Espaciado --- */
+  --sp-1: .25rem;
+  --sp-2: .5rem;
+  --sp-3: 1rem;
+  --sp-4: 1.5rem;
+  --sp-5: 2.5rem;
+  --sp-6: 4rem;
+
+  /* --- Radios --- */
+  --r-1: .5rem;    /* botones, inputs */
+  --r-2: .75rem;   /* tarjetas de skills y del design system */
+  --r-3: 1rem;     /* tarjetas de proyecto, formulario, modal, foto */
+  --r-pill: 999px; /* chips y filtros */
+
+  /* --- Layout --- */
+  --container: 1120px;
+  --pad-x: clamp(1rem, 5vw, 3rem);
+  --header-h: 64px;
+  --scroll-offset: 88px;
+}
+
+/* --- Tema claro: solo redefine variables --- */
+:root[data-theme="light"] {
+  --bg: #FFFFFF;
+  --surface: #F4F6FA;
+  --text: #0F172A;
+  --muted: #64748B;
+  --border: #E2E8F0;
+  --on-accent: #FFFFFF;
+  --shadow: 0 8px 24px rgba(15, 23, 42, .08);
+  /* --accent, --accent-2 y --error no cambian entre temas */
+}
