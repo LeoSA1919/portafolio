@@ -827,6 +827,16 @@ h3 {
   color: var(--text);
 }
 
+/* Enlace aún sin URL: se muestra atenuado y sin interacción */
+.card__link--pending {
+  opacity: .6;
+  cursor: default;
+}
+
+.card__link--pending:hover {
+  color: var(--muted);
+}
+
 /* Etiquetas de tecnología (tags) */
 .tags {
   display: flex;
