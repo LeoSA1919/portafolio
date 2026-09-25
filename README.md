@@ -30,13 +30,15 @@ portafolio/
 │   └── styles.css      # base, layout, componentes, responsive (comentado por secciones)
 ├── js/
 │   ├── data.js         # contenido: proyectos, skills, paleta, espaciado (window.PORTFOLIO_DATA)
+│   ├── icons.js        # GENERADO: logos SVG en línea (node scripts/build-icons.js)
 │   ├── theme.js        # tema claro/oscuro + localStorage
 │   ├── nav.js          # menú hamburguesa, volver arriba
 │   ├── projects.js     # tarjetas, filtro por tecnología, modal
 │   ├── contact.js      # validación + envío con Web3Forms
 │   └── main.js         # inicialización y render de skills/design system
 ├── assets/img/         # foto y capturas
-├── assets/icons/       # logos SVG monocromos de las habilidades (Simple Icons)
+├── assets/icons/       # logos SVG monocromos de las habilidades (Simple Icons, CC0)
+├── scripts/build-icons.js  # genera js/icons.js desde assets/icons/
 ├── README.md
 └── .gitignore
 ```

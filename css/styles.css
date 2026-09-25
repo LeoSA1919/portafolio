@@ -629,25 +629,12 @@ h3 {
   color: var(--accent);
 }
 
-/* Logo monocromo: el SVG actúa como máscara y se pinta con currentColor,
-   así respeta el acento y el tema claro/oscuro */
+/* Logo monocromo en línea: hereda el color del chip (acento) en ambos temas */
 .chip__logo {
   display: block;
   width: 14px;
   height: 14px;
-  background-color: currentColor;
-  -webkit-mask: var(--logo) center / contain no-repeat;
-  mask: var(--logo) center / contain no-repeat;
-}
-
-.chip__icon--logo .chip__abbr {
-  display: none;
-}
-
-/* Sin soporte de mask: se muestra la abreviatura */
-@supports not ((mask: url("")) or (-webkit-mask: url(""))) {
-  .chip__logo { display: none; }
-  .chip__icon--logo .chip__abbr { display: inline; }
+  fill: currentColor;
 }
 
 .chip__level {

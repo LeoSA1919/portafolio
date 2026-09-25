@@ -21,16 +21,17 @@
     return window.PORTFOLIO_DATA || {};
   }
 
-  /* --- Icono del chip: logo monocromo (assets/icons/<icon>.svg, teñido con
-         currentColor vía mask) o, si no hay logo, la abreviatura de 2 letras --- */
+  /* --- Icono del chip: logo monocromo en línea (js/icons.js, generado desde
+         assets/icons/<icon>.svg) pintado con currentColor; si no hay logo, la
+         abreviatura de 2 letras --- */
   function chipIconHtml(skill) {
-    var icon = String(skill.icon || '').trim();
-    var abbr = '<span class="chip__abbr">' + esc(skill.abbr) + '</span>';
-    if (!/^[a-z0-9-]+$/i.test(icon)) {
-      return '<span class="chip__icon" aria-hidden="true">' + abbr + '</span>';
+    var icons = window.PORTFOLIO_ICONS || {};
+    var icon = icons[String(skill.icon || '').trim().toLowerCase()];
+    if (!icon) {
+      return '<span class="chip__icon" aria-hidden="true">' + esc(skill.abbr) + '</span>';
     }
     return '<span class="chip__icon chip__icon--logo" aria-hidden="true">' +
-      '<span class="chip__logo" style="--logo: url(assets/icons/' + icon + '.svg)"></span>' + abbr +
+      '<svg class="chip__logo" viewBox="' + esc(icon.viewBox) + '" fill="currentColor" focusable="false">' + icon.body + '</svg>' +
     '</span>';
   }
 
