@@ -30,7 +30,7 @@
     return v !== '#' && !/^\[.*\]$/.test(v);
   }
 
-  /* Normaliza una URL escrita sin protocolo (booking.nexcodeec.com) */
+  /* Normaliza una URL escrita sin protocolo (ejemplo.com) */
   function normalizeUrl(value) {
     var v = String(value).trim();
     return /^(https?:)?\/\//i.test(v) ? v : 'https://' + v;
