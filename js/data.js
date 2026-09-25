@@ -61,42 +61,44 @@ window.PORTFOLIO_DATA = {
     }
   ],
 
-  /* --- Habilidades: nivel 1 = básico, 2 = intermedio, 3 = avanzado --- */
+  /* --- Habilidades: nivel 1 = básico, 2 = intermedio, 3 = avanzado.
+         icon = nombre de archivo en assets/icons/<icon>.svg (logo monocromo);
+         si falta, el chip muestra la abreviatura (abbr). --- */
   levels: { 1: 'básico', 2: 'intermedio', 3: 'avanzado' },
 
   skillGroups: [
     {
       name: 'Frontend',
       skills: [
-        { abbr: 'HT', name: 'HTML', level: 3 },
-        { abbr: 'CS', name: 'CSS', level: 2 },
-        { abbr: 'JS', name: 'JavaScript', level: 2 }
+        { abbr: 'HT', name: 'HTML', icon: 'html5', level: 3 },
+        { abbr: 'CS', name: 'CSS', icon: 'css3', level: 2 },
+        { abbr: 'JS', name: 'JavaScript', icon: 'javascript', level: 2 }
       ]
     },
     {
       name: 'Backend',
       skills: [
-        { abbr: 'Py', name: 'Python', level: 3 },
-        { abbr: 'Dj', name: 'Django', level: 3 },
-        { abbr: 'St', name: 'Stripe', level: 2 },
-        { abbr: 'WA', name: 'API de WhatsApp', level: 2 }
+        { abbr: 'Py', name: 'Python', icon: 'python', level: 3 },
+        { abbr: 'Dj', name: 'Django', icon: 'django', level: 3 },
+        { abbr: 'St', name: 'Stripe', icon: 'stripe', level: 2 },
+        { abbr: 'WA', name: 'API de WhatsApp', icon: 'whatsapp', level: 2 }
       ]
     },
     {
       name: 'Bases de datos',
       skills: [
-        { abbr: 'Pg', name: 'PostgreSQL', level: 3 },
+        { abbr: 'Pg', name: 'PostgreSQL', icon: 'postgresql', level: 3 },
         { abbr: 'SQ', name: 'SQL', level: 2 }
       ]
     },
     {
       name: 'Herramientas',
       skills: [
-        { abbr: 'Gt', name: 'Git', level: 3 },
-        { abbr: 'Ng', name: 'nginx', level: 2 },
-        { abbr: 'Gu', name: 'gunicorn', level: 2 },
-        { abbr: 'Ln', name: 'Linux', level: 2 },
-        { abbr: 'PC', name: 'PyCharm', level: 3 }
+        { abbr: 'Gt', name: 'Git', icon: 'git', level: 3 },
+        { abbr: 'Ng', name: 'nginx', icon: 'nginx', level: 2 },
+        { abbr: 'Gu', name: 'gunicorn', icon: 'gunicorn', level: 2 },
+        { abbr: 'Ln', name: 'Linux', icon: 'linux', level: 2 },
+        { abbr: 'PC', name: 'PyCharm', icon: 'pycharm', level: 3 }
       ]
     },
     {

@@ -21,6 +21,19 @@
     return window.PORTFOLIO_DATA || {};
   }
 
+  /* --- Icono del chip: logo monocromo (assets/icons/<icon>.svg, teñido con
+         currentColor vía mask) o, si no hay logo, la abreviatura de 2 letras --- */
+  function chipIconHtml(skill) {
+    var icon = String(skill.icon || '').trim();
+    var abbr = '<span class="chip__abbr">' + esc(skill.abbr) + '</span>';
+    if (!/^[a-z0-9-]+$/i.test(icon)) {
+      return '<span class="chip__icon" aria-hidden="true">' + abbr + '</span>';
+    }
+    return '<span class="chip__icon chip__icon--logo" aria-hidden="true">' +
+      '<span class="chip__logo" style="--logo: url(assets/icons/' + icon + '.svg)"></span>' + abbr +
+    '</span>';
+  }
+
   /* --- Habilidades: grupos con chips y barra de nivel --- */
   function renderSkills() {
     var grid = document.getElementById('skills-grid');
@@ -36,7 +49,7 @@
         var levelName = levels[level];
         return (
           '<li class="chip" title="' + esc(levelName) + '">' +
-            '<span class="chip__icon" aria-hidden="true">' + esc(s.abbr) + '</span>' +
+            chipIconHtml(s) +
             '<span>' + esc(s.name) + '</span>' +
             '<span class="chip__level" aria-hidden="true"><span class="chip__level-fill chip__level-fill--' + level + '"></span></span>' +
             '<span class="sr-only">nivel ' + esc(levelName) + '</span>' +
