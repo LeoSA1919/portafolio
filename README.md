@@ -120,8 +120,6 @@ El botón discreto **✎ editor** del pie abre un panel para cambiar la foto, ag
 | Foto del hero | Ya incluida en `assets/img/hero.jpg` (`<img>` en el hero); para cambiarla, reemplaza el archivo |
 | `[CORREO]` | `index.html` (sección Contacto, `mailto:` y texto) |
 | `[GITHUB]`, `[LINKEDIN]` | `index.html` (sección Contacto) |
-| `[UNIVERSIDAD]` | `index.html` (sección Sobre mí) |
-| `[CIUDAD]` | `index.html` (métricas de Sobre mí) |
 | `[WEB3FORMS_ACCESS_KEY]` | `index.html` (campo oculto del formulario) |
 | `[PLACEHOLDER]` en `repo` / `demo` | `js/data.js` (cada proyecto) |
 | Capturas 16:10 de proyectos | `js/data.js` → `image` de cada proyecto |
