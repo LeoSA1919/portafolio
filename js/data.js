@@ -2,18 +2,10 @@
    data.js — Contenido del portafolio
    Define el objeto global window.PORTFOLIO_DATA que consumen los demás
    scripts. Para cambiar textos, proyectos o habilidades edita este archivo
-   (o usa el panel editor y pega aquí el JSON exportado).
+   La foto del hero se define directamente en index.html (assets/img/hero.jpg).
    ========================================================================== */
 
 window.PORTFOLIO_DATA = {
-
-  /* --- Ajustes generales --- */
-  settings: {
-    /* Ruta relativa de la foto del hero (4:5) */
-    photo: 'assets/img/hero.jpg',
-    /* Panel editor (js/editor.js): true muestra el botón discreto en el pie */
-    editorEnabled: true
-  },
 
   /* --- Proyectos (cada uno se renderiza como <article>) --- */
   projects: [

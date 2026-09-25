@@ -308,124 +308,9 @@
   <footer class="site-footer">
     <div class="site-footer__inner">
       <p class="site-footer__text">© 2026 Cesar Miño</p>
-      <p class="site-footer__text">Inter + JetBrains Mono · tokens en :root
-        <!-- Botón discreto del panel editor (js/editor.js); se muestra si settings.editorEnabled es true -->
-        <button class="editor-toggle" id="editor-toggle" type="button" aria-controls="editor" aria-expanded="false" hidden>✎ editor</button>
-      </p>
+      <p class="site-footer__text">Hecho con HTML, CSS y JavaScript</p>
     </div>
   </footer>
-
-  <!-- ===================== PANEL EDITOR (opcional, js/editor.js) =====================
-       Los cambios se guardan en localStorage de ESTE navegador. Lo que hace un cambio
-       público y permanente es pegar el JSON exportado en js/data.js y hacer commit. -->
-  <aside class="editor" id="editor" aria-labelledby="editor-title" hidden>
-    <div class="editor__head">
-      <h2 class="editor__title" id="editor-title">Editor de contenido</h2>
-      <button class="icon-btn" id="editor-close" type="button" aria-label="Cerrar editor">×</button>
-    </div>
-    <p class="editor__note">Los cambios se guardan solo en este navegador (localStorage). Para publicarlos: <strong>Exportar</strong>, pegar el JSON en <code>js/data.js</code> y hacer commit.</p>
-
-    <form class="editor__form" id="editor-photo-form">
-      <p class="editor__label">Foto del hero</p>
-      <div class="field">
-        <label class="field__label" for="editor-photo">URL de la foto (4:5)</label>
-        <input class="field__input" id="editor-photo" name="photo" type="url" placeholder="assets/img/hero.jpg">
-      </div>
-      <button class="btn btn--secondary btn--on-surface btn--sm" type="submit">Aplicar foto</button>
-    </form>
-
-    <form class="editor__form" id="editor-project-form">
-      <p class="editor__label">Proyectos</p>
-      <ul class="editor__list" id="editor-project-list" aria-label="Proyectos existentes"></ul>
-      <input type="hidden" name="id" value="">
-      <div class="field">
-        <label class="field__label" for="ep-title">Título</label>
-        <input class="field__input" id="ep-title" name="title" type="text" required>
-      </div>
-      <div class="field">
-        <label class="field__label" for="ep-summary">Resumen</label>
-        <input class="field__input" id="ep-summary" name="summary" type="text">
-      </div>
-      <div class="field">
-        <label class="field__label" for="ep-detail">Detalle</label>
-        <textarea class="field__input" id="ep-detail" name="detail" rows="3"></textarea>
-      </div>
-      <div class="field">
-        <label class="field__label" for="ep-tags">Tecnologías (separadas por coma)</label>
-        <input class="field__input" id="ep-tags" name="tags" type="text" placeholder="Django, PostgreSQL">
-      </div>
-      <div class="editor__row">
-        <div class="field">
-          <label class="field__label" for="ep-year">Año</label>
-          <input class="field__input" id="ep-year" name="year" type="text">
-        </div>
-        <div class="field">
-          <label class="field__label" for="ep-role">Rol</label>
-          <input class="field__input" id="ep-role" name="role" type="text">
-        </div>
-      </div>
-      <div class="field">
-        <label class="field__label" for="ep-repo">Repositorio (URL)</label>
-        <input class="field__input" id="ep-repo" name="repo" type="text">
-      </div>
-      <div class="field">
-        <label class="field__label" for="ep-demo">Demo (URL)</label>
-        <input class="field__input" id="ep-demo" name="demo" type="text">
-      </div>
-      <div class="field">
-        <label class="field__label" for="ep-image">Captura (URL, 16:10)</label>
-        <input class="field__input" id="ep-image" name="image" type="text">
-      </div>
-      <div class="editor__actions">
-        <button class="btn btn--primary btn--sm" type="submit" id="ep-submit">Agregar proyecto</button>
-        <button class="btn btn--secondary btn--on-surface btn--sm" type="button" id="ep-cancel" hidden>Cancelar edición</button>
-      </div>
-    </form>
-
-    <form class="editor__form" id="editor-skill-form">
-      <p class="editor__label">Habilidades</p>
-      <ul class="editor__list" id="editor-skill-list" aria-label="Habilidades existentes"></ul>
-      <div class="editor__row">
-        <div class="field">
-          <label class="field__label" for="es-group">Grupo</label>
-          <select class="field__input" id="es-group" name="group"></select>
-        </div>
-        <div class="field">
-          <label class="field__label" for="es-level">Nivel</label>
-          <select class="field__input" id="es-level" name="level">
-            <option value="1">Básico</option>
-            <option value="2" selected>Intermedio</option>
-            <option value="3">Avanzado</option>
-          </select>
-        </div>
-      </div>
-      <div class="editor__row">
-        <div class="field">
-          <label class="field__label" for="es-abbr">Abreviatura</label>
-          <input class="field__input" id="es-abbr" name="abbr" type="text" maxlength="3" placeholder="Py" required>
-        </div>
-        <div class="field">
-          <label class="field__label" for="es-name">Nombre</label>
-          <input class="field__input" id="es-name" name="name" type="text" placeholder="Python" required>
-        </div>
-      </div>
-      <button class="btn btn--primary btn--sm" type="submit">Agregar habilidad</button>
-    </form>
-
-    <div class="editor__form">
-      <p class="editor__label">Exportar</p>
-      <div class="editor__actions">
-        <button class="btn btn--primary btn--sm" type="button" id="editor-export">Exportar JSON</button>
-        <button class="btn btn--secondary btn--on-surface btn--sm" type="button" id="editor-copy" hidden>Copiar</button>
-        <button class="btn btn--secondary btn--on-surface btn--sm" type="button" id="editor-reset">Restablecer</button>
-      </div>
-      <div class="field">
-        <label class="field__label" for="editor-output">JSON para pegar en js/data.js</label>
-        <textarea class="field__input editor__output" id="editor-output" rows="8" readonly spellcheck="false"></textarea>
-      </div>
-      <p class="editor__status" id="editor-status" role="status" aria-live="polite"></p>
-    </div>
-  </aside>
 
   <!-- ===================== VOLVER ARRIBA ===================== -->
   <button class="to-top" id="to-top" type="button" aria-label="Volver arriba" hidden>↑</button>
@@ -458,7 +343,6 @@
   <script src="js/nav.js" defer></script>
   <script src="js/projects.js" defer></script>
   <script src="js/contact.js" defer></script>
-  <script src="js/editor.js" defer></script>
   <script src="js/main.js" defer></script>
 </body>
 </html>

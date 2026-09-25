@@ -1,8 +1,8 @@
 /* ==========================================================================
    main.js — Inicialización
    Renderiza el contenido estático que sale de data.js (habilidades, paleta,
-   espaciado, foto) y arranca los módulos: tema, navegación, proyectos,
-   contacto y editor. Se carga el último, con defer.
+   espaciado) y arranca los módulos: tema, navegación, proyectos y contacto.
+   Se carga el último, con defer.
    ========================================================================== */
 
 (function () {
@@ -107,19 +107,10 @@
     }).join('');
   }
 
-  /* --- Foto del hero: la ruta viene de settings.photo (por defecto, la del HTML) --- */
-  function renderPhoto() {
-    var img = document.getElementById('hero-photo');
-    if (!img) return;
-    var photo = data().settings && data().settings.photo;
-    if (typeof photo === 'string' && photo.trim()) img.src = photo.trim();
-  }
-
   function renderAll() {
     renderSkills();
     renderPalette();
     renderSpacing();
-    renderPhoto();
   }
 
   function init() {
@@ -128,10 +119,7 @@
     renderAll();
     if (window.PortfolioProjects) window.PortfolioProjects.init();
     if (window.PortfolioContact) window.PortfolioContact.init();
-    if (window.PortfolioEditor) window.PortfolioEditor.init();
   }
-
-  window.PortfolioMain = { renderAll: renderAll, renderSkills: renderSkills, renderPhoto: renderPhoto };
 
   /* Los scripts van con defer: el DOM ya está listo al ejecutarse */
   init();

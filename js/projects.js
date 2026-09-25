@@ -263,11 +263,5 @@
     }
   }
 
-  /* Vuelve a pintar todo (lo usa el panel editor tras cambios) */
-  function refresh() {
-    renderFilters();
-    renderProjects();
-  }
-
-  window.PortfolioProjects = { init: init, refresh: refresh, open: openModal, close: closeModal };
+  window.PortfolioProjects = { init: init, open: openModal, close: closeModal };
 })();

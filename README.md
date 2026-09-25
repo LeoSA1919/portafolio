@@ -16,7 +16,7 @@ Portafolio personal de una sola página para Cesar Miño, desarrollador de softw
 
 - **HTML5 semántico**: `header`, `nav`, `main`, `section`, `article`, `figure`, `footer`; un solo `h1`, jerarquía h1 → h2 → h3; formularios con `label` asociado.
 - **CSS3**: custom properties (design tokens en `css/variables.css`), Flexbox, Grid, `clamp()`, media queries, `prefers-reduced-motion`, tema claro/oscuro solo redefiniendo variables.
-- **JavaScript vanilla** (ES5/ES6 sin módulos): render desde datos, filtro, modal accesible, validación, `fetch` a Web3Forms, persistencia en `localStorage`.
+- **JavaScript vanilla** (ES5/ES6 sin módulos): render desde datos, filtro, modal accesible, validación, `fetch` a Web3Forms, tema persistente en `localStorage`.
 - **Tipografías**: Inter y JetBrains Mono desde Google Fonts.
 - **Git + GitHub Pages** para versionado y publicación.
 
@@ -34,9 +34,9 @@ portafolio/
 │   ├── nav.js          # menú hamburguesa, volver arriba
 │   ├── projects.js     # tarjetas, filtro por tecnología, modal
 │   ├── contact.js      # validación + envío con Web3Forms
-│   ├── editor.js       # panel editor opcional (localStorage + exportar JSON)
 │   └── main.js         # inicialización y render de skills/design system
 ├── assets/img/         # foto y capturas
+├── assets/icons/       # logos SVG monocromos de las habilidades (Simple Icons)
 ├── README.md
 └── .gitignore
 ```
@@ -60,7 +60,6 @@ portafolio/
 - Validación del formulario: nombre obligatorio, correo con expresión regular, mensaje mínimo 10 caracteres; errores por campo.
 - Envío real con Web3Forms (`fetch`) con estados enviando / enviado / error.
 - Botón "volver arriba" tras 480px de scroll con desplazamiento suave.
-- Panel editor opcional (ver abajo).
 
 ## Cómo verlo en local
 
@@ -104,14 +103,6 @@ gh repo create portafolio --public --source=. --remote=origin --push
 1. Entra en https://web3forms.com, introduce el correo donde quieres recibir los mensajes y copia la *Access Key*.
 2. En `index.html`, sustituye `[WEB3FORMS_ACCESS_KEY]` en el campo oculto `access_key`.
 3. Mientras la clave sea el placeholder, el formulario valida y muestra un aviso de modo demo, pero no envía.
-
-## Panel editor (opcional)
-
-El botón discreto **✎ editor** del pie abre un panel para cambiar la foto, agregar/editar proyectos y habilidades.
-
-- Los cambios se guardan en `localStorage` **solo en tu navegador**; los visitantes no los ven.
-- **Exportar JSON** genera el contenido para pegarlo en `js/data.js` (claves `settings`, `projects`, `skillGroups`). Lo que hace el cambio público y permanente es el commit.
-- Para desactivarlo: `settings.editorEnabled = false` en `js/data.js`.
 
 ## Placeholders a reemplazar
 

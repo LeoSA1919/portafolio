@@ -15,9 +15,8 @@
     12. Pie de página
     13. Volver arriba
     14. Modal
-    15. Panel editor
-    16. Animaciones y accesibilidad (reduced motion)
-    17. Responsive
+    15. Animaciones y accesibilidad (reduced motion)
+    16. Responsive
    Ningún color está hardcodeado: todo sale de css/variables.css.
    ========================================================================== */
 
@@ -1394,171 +1393,7 @@ body.modal-open {
 }
 
 /* ==========================================================================
-   15. Panel editor (opcional)
-   ========================================================================== */
-.editor-toggle {
-  margin-left: var(--sp-2);
-  padding: 2px var(--sp-2);
-  border: 1px solid var(--border);
-  border-radius: var(--r-1);
-  background: transparent;
-  color: var(--muted);
-  font-family: var(--font-mono);
-  font-size: .6875rem;
-  transition: color .15s, border-color .15s;
-}
-
-.editor-toggle:hover {
-  color: var(--text);
-  border-color: var(--muted);
-}
-
-.editor-toggle[hidden] {
-  display: none;
-}
-
-/* Cajón lateral fijo */
-.editor {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 55;
-  width: min(100%, 400px);
-  overflow: auto;
-  display: flex;
-  flex-direction: column;
-  gap: var(--sp-4);
-  padding: var(--sp-4) var(--sp-4) var(--sp-6);
-  background: var(--surface);
-  border-left: 1px solid var(--border);
-  box-shadow: var(--shadow);
-  animation: fadeUp .2s ease;
-}
-
-.editor[hidden] {
-  display: none;
-}
-
-.editor__head {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: var(--sp-2);
-}
-
-.editor__title {
-  font-size: 1.125rem;
-  font-weight: 600;
-  letter-spacing: -.01em;
-}
-
-.editor__note {
-  font-size: .8125rem;
-  line-height: 1.6;
-  color: var(--muted);
-}
-
-.editor__note code {
-  font-family: var(--font-mono);
-  font-size: .75rem;
-  color: var(--text);
-}
-
-.editor__form {
-  display: flex;
-  flex-direction: column;
-  gap: var(--sp-3);
-  padding-top: var(--sp-3);
-  border-top: 1px solid var(--border);
-}
-
-.editor__label {
-  font-family: var(--font-mono);
-  font-size: .6875rem;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--accent);
-}
-
-.editor__row {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--sp-2);
-}
-
-.editor__actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--sp-2);
-}
-
-.editor__list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--sp-1);
-}
-
-.editor__item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--sp-2);
-  padding: var(--sp-1) 0;
-  border-bottom: 1px solid var(--border);
-  font-size: .8125rem;
-}
-
-.editor__item-name {
-  min-width: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.editor__item-actions {
-  display: flex;
-  gap: var(--sp-1);
-  flex-shrink: 0;
-}
-
-.editor__item-btn {
-  padding: 2px var(--sp-2);
-  border: 1px solid var(--border);
-  border-radius: var(--r-1);
-  background: var(--bg);
-  color: var(--muted);
-  font-family: var(--font-mono);
-  font-size: .6875rem;
-  transition: color .15s, border-color .15s;
-}
-
-.editor__item-btn:hover {
-  color: var(--text);
-  border-color: var(--muted);
-}
-
-.editor__output {
-  font-family: var(--font-mono);
-  font-size: .75rem;
-}
-
-.editor__status {
-  min-height: 1em;
-  font-family: var(--font-mono);
-  font-size: .75rem;
-  color: var(--accent);
-}
-
-/* Los <select> comparten estilo con los inputs */
-select.field__input {
-  appearance: none;
-  -webkit-appearance: none;
-  padding-right: var(--sp-4);
-}
-
-/* ==========================================================================
-   16. Animaciones y accesibilidad
+   15. Animaciones y accesibilidad
    ========================================================================== */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(12px); }
@@ -1580,7 +1415,7 @@ select.field__input {
 }
 
 /* ==========================================================================
-   17. Responsive
+   16. Responsive
    - Escritorio (>=1024px): contenido a 1120px, grids de 2-3 columnas.
    - Tablet (640-1023px): los grids auto-fit colapsan solos; nav horizontal
      hasta 860px, luego hamburguesa.
@@ -1651,10 +1486,6 @@ select.field__input {
   /* El pie del modal y del formulario apilan sus botones */
   .modal__footer .btn {
     flex: 1 1 100%;
-  }
-
-  .editor__row {
-    grid-template-columns: 1fr;
   }
 }
 
