@@ -136,7 +136,7 @@
     form.addEventListener('submit', function (event) {
       event.preventDefault();
       var url = form.elements.photo.value.trim();
-      DATA.settings.photo = url || 'assets/img/hero-placeholder.svg';
+      DATA.settings.photo = url || 'assets/img/hero.jpg';
       save();
       refreshSite();
       setStatus('Foto actualizada en este navegador.');

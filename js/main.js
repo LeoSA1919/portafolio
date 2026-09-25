@@ -94,24 +94,12 @@
     }).join('');
   }
 
-  /* --- Foto del hero (placeholder o foto real) --- */
+  /* --- Foto del hero: la ruta viene de settings.photo (por defecto, la del HTML) --- */
   function renderPhoto() {
     var img = document.getElementById('hero-photo');
-    var box = img && img.closest('.hero__photo');
-    if (!img || !box) return;
-
-    var photo = (data().settings && data().settings.photo) || 'assets/img/hero-placeholder.svg';
-    var isPlaceholder = /hero-placeholder\.svg$/i.test(photo) || /^\[.*\]$/.test(photo);
-
-    img.src = photo;
-    box.classList.toggle('has-photo', !isPlaceholder);
-
-    /* Si la foto real no carga, vuelve al placeholder */
-    img.onerror = function () {
-      img.onerror = null;
-      img.src = 'assets/img/hero-placeholder.svg';
-      box.classList.remove('has-photo');
-    };
+    if (!img) return;
+    var photo = data().settings && data().settings.photo;
+    if (typeof photo === 'string' && photo.trim()) img.src = photo.trim();
   }
 
   function renderAll() {

@@ -9,7 +9,7 @@ window.PORTFOLIO_DATA = {
 
   /* --- Ajustes generales --- */
   settings: {
-    /* Ruta de la foto del hero (4:5). Usa 'assets/img/hero-placeholder.svg' para el placeholder */
+    /* Ruta relativa de la foto del hero (4:5) */
     photo: 'assets/img/hero.jpg',
     /* Panel editor (js/editor.js): true muestra el botón discreto en el pie */
     editorEnabled: true

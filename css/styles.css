@@ -480,47 +480,20 @@ h3 {
   position: relative;
   width: min(100%, 360px);
   aspect-ratio: 4 / 5;
-  display: grid;
-  place-items: center;
   overflow: hidden;
   border-radius: var(--r-3);
   border: 1px solid var(--border);
-  background: var(--stripes-surface);
+  background: var(--surface);
   box-shadow: var(--shadow);
 }
 
+/* La foto llena el marco 4:5 sin deformarse */
 .hero__photo img {
-  position: absolute;
-  inset: 0;
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center top;
-}
-
-.hero__photo-label {
-  position: relative;
-  z-index: 1;
-  background: var(--bg);
-  font-size: .8125rem;
-}
-
-.hero__photo-meta {
-  position: absolute;
-  left: var(--sp-3);
-  right: var(--sp-3);
-  bottom: var(--sp-3);
-  display: flex;
-  justify-content: space-between;
-  font-family: var(--font-mono);
-  font-size: .6875rem;
-  color: var(--muted);
-}
-
-/* Cuando hay foto real, se ocultan la etiqueta y el pie del placeholder */
-.hero__photo.has-photo .hero__photo-label,
-.hero__photo.has-photo .hero__photo-meta {
-  display: none;
 }
 
 /* ==========================================================================

@@ -117,7 +117,7 @@ El botón discreto **✎ editor** del pie abre un panel para cambiar la foto, ag
 
 | Placeholder | Dónde |
 |---|---|
-| Foto del hero | Ya incluida en `assets/img/hero.jpg`; para cambiarla, reemplaza el archivo o edita `settings.photo` en `js/data.js` |
+| Foto del hero | Ya incluida en `assets/img/hero.jpg` (`<img>` en el hero); para cambiarla, reemplaza el archivo |
 | `[CORREO]` | `index.html` (sección Contacto, `mailto:` y texto) |
 | `[GITHUB]`, `[LINKEDIN]` | `index.html` (sección Contacto) |
 | `[UNIVERSIDAD]` | `index.html` (sección Sobre mí) |
