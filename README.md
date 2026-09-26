@@ -114,8 +114,6 @@ gh repo create portafolio --public --source=. --remote=origin --push
 | `[CORREO]` | `index.html` (sección Contacto, `mailto:` y texto) |
 | `[GITHUB]`, `[LINKEDIN]` | `index.html` (sección Contacto) |
 | `[WEB3FORMS_ACCESS_KEY]` | `index.html` (campo oculto del formulario) |
-| `[PLACEHOLDER]` en `repo` / `demo` | `js/data.js` (cada proyecto) |
-| Capturas 16:10 de proyectos | `js/data.js` → `image` de cada proyecto |
 | `[GITHUB_USER]` | este README (URL del sitio y remoto) |
 
 ## Licencia

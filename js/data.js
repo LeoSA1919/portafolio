@@ -8,6 +8,7 @@
 window.PORTFOLIO_DATA = {
 
   /* --- Proyectos (cada uno se renderiza como <article>).
+         url = enlace público del proyecto (botón "Ver en vivo");
          image = ruta relativa a la captura; imageAlt = texto alternativo;
          imagePosition (opcional) = object-position para elegir qué zona de
          la captura queda visible al recortarla a 16:10. --- */
@@ -21,8 +22,7 @@ window.PORTFOLIO_DATA = {
       summary: 'Chatbot que cotiza servicios de topografía y geoespaciales de forma automática.',
       detail: 'Problema: los clientes pedían cotizaciones por mensajería y cada respuesta era manual. El bot recoge los parámetros del servicio, calcula la cotización y la entrega al instante, dejando registro para el equipo comercial.',
       tags: ['Python', 'Django'],
-      repo: '[PLACEHOLDER]',
-      demo: '[PLACEHOLDER]',
+      url: 'https://skytech-geo.com/',
       image: 'assets/img/proyecto-sky.png',
       imageAlt: 'Captura del chatbot de cotizaciones de Skytech-Geo'
     },
@@ -35,8 +35,7 @@ window.PORTFOLIO_DATA = {
       summary: 'Atención y consulta automatizada para la plataforma InfraOpera.',
       detail: 'Problema: dar respuesta inmediata a consultas frecuentes y guiar a los usuarios dentro de la plataforma sin depender de un operador. El bot responde, orienta y escala a una persona cuando hace falta.',
       tags: ['Python', 'Django'],
-      repo: '[PLACEHOLDER]',
-      demo: '[PLACEHOLDER]',
+      url: 'https://infraopera.com/',
       image: 'assets/img/proyecto-infraopera.png',
       imageAlt: 'Captura del chatbot de InfraOpera',
       imagePosition: 'center top'
@@ -50,8 +49,7 @@ window.PORTFOLIO_DATA = {
       summary: 'Suscripciones y pagos recurrentes para los planes de ReadyFy.',
       detail: 'Problema: cobrar planes de forma segura y recurrente. Se integró Stripe (Checkout, Customer Portal y webhooks) para alta de suscripciones, renovaciones, cancelaciones y sincronización del estado de pago con la plataforma.',
       tags: ['Django', 'Stripe'],
-      repo: '[PLACEHOLDER]',
-      demo: '[PLACEHOLDER]',
+      url: 'https://readyfy.ai/suscriber/',
       image: 'assets/img/proyecto-readyfy.png',
       imageAlt: 'Captura de la pantalla de suscripción de ReadyFy'
     }

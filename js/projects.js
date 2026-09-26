@@ -23,7 +23,7 @@
       .replace(/'/g, '&#39;');
   }
 
-  /* Un enlace es "real" si no está vacío ni es un placeholder tipo [TEXTO] o '#' */
+  /* Un enlace es "real" si no está vacío, no es '#' ni un texto pendiente tipo [TEXTO] */
   function isRealUrl(value) {
     if (!value) return false;
     var v = String(value).trim();
@@ -56,14 +56,12 @@
     return '<img src="' + esc(project.image) + '" alt="' + esc(alt) + '" loading="lazy"' + style + '>';
   }
 
-  function linkHtml(url, glyph, label, extraClass) {
-    if (isRealUrl(url)) {
-      return '<a class="card__link ' + extraClass + '" href="' + esc(normalizeUrl(url)) + '" target="_blank" rel="noreferrer">' +
-        '<span class="mono" aria-hidden="true">' + glyph + '</span> ' + esc(label) + '</a>';
-    }
-    /* Sin URL todavía: no se renderiza un enlace roto */
-    return '<span class="card__link card__link--pending" title="Enlace pendiente">' +
-      '<span class="mono" aria-hidden="true">' + glyph + '</span> ' + esc(label) + ' (pendiente)</span>';
+  /* Único enlace público del proyecto ("Ver en vivo"). Sin URL no se
+     renderiza un enlace roto. */
+  function liveLinkHtml(project) {
+    if (!isRealUrl(project.url)) return '';
+    return '<a class="card__link" href="' + esc(normalizeUrl(project.url)) + '" target="_blank" rel="noopener noreferrer">' +
+      '<span class="mono" aria-hidden="true">↗</span> Ver en vivo</a>';
   }
 
   function cardHtml(project) {
@@ -82,8 +80,7 @@
           '<ul class="tags" aria-label="Tecnologías">' + tagsHtml(project.tags) + '</ul>' +
           '<div class="card__footer">' +
             '<button class="btn btn--primary btn--sm" type="button" data-open-project="' + esc(project.id) + '" aria-haspopup="dialog">Detalles</button>' +
-            linkHtml(project.repo, '&lt;/&gt;', 'Repo', 'card__link--repo') +
-            linkHtml(project.demo, '↗', 'Demo', 'card__link--demo') +
+            liveLinkHtml(project) +
           '</div>' +
         '</div>' +
       '</article>'
@@ -145,17 +142,16 @@
     );
   }
 
-  function setModalLink(id, url) {
-    var link = document.getElementById(id);
+  /* Enlace "Ver en vivo" del modal; se oculta si el proyecto no tiene URL */
+  function setModalLink(project) {
+    var link = document.getElementById('modal-live');
     if (!link) return;
-    if (isRealUrl(url)) {
-      link.href = normalizeUrl(url);
-      link.removeAttribute('aria-disabled');
-      link.removeAttribute('title');
+    if (isRealUrl(project.url)) {
+      link.href = normalizeUrl(project.url);
+      link.hidden = false;
     } else {
       link.removeAttribute('href');
-      link.setAttribute('aria-disabled', 'true');
-      link.setAttribute('title', 'Enlace pendiente');
+      link.hidden = true;
     }
   }
 
@@ -176,8 +172,7 @@
     if (caption) media.appendChild(caption);
     caption.textContent = 'Imagen del proyecto ' + (project.title || '');
 
-    setModalLink('modal-repo', project.repo);
-    setModalLink('modal-demo', project.demo);
+    setModalLink(project);
 
     modal.hidden = false;
     document.body.classList.add('modal-open');
