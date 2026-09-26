@@ -1,24 +1,22 @@
 /* ==========================================================================
-   contact.js — Validación del formulario y envío real con Web3Forms
+   contact.js — Validación del formulario y confirmación en pantalla
    Reglas:
      - Nombre: obligatorio.
      - Correo: formato válido (expresión regular).
      - Mensaje: mínimo 10 caracteres (tras trim).
    Envío:
-     - fetch POST a https://api.web3forms.com/submit con la access_key del
-       campo oculto. Estados: enviando / enviado / error.
-     - Si la clave sigue siendo el placeholder [WEB3FORMS_ACCESS_KEY], el
-       formulario solo valida y avisa que falta configurar la clave.
+     - Solo del lado del cliente: no hay petición a ningún servicio.
+     - Si la validación pasa, se muestra "✓ Mensaje enviado" junto al botón
+       y se limpian los campos. Corregir y reenviar vuelve a funcionar.
    ========================================================================== */
 
 (function () {
   'use strict';
 
-  var ENDPOINT = 'https://api.web3forms.com/submit';
   var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   var MIN_MESSAGE = 10;
 
-  var form, status, submitBtn;
+  var form, status;
 
   /* --- Validación --- */
 
@@ -64,7 +62,7 @@
     return !firstInvalid;
   }
 
-  /* --- Estado del envío --- */
+  /* --- Estado --- */
 
   function setStatus(text, kind) {
     if (!status) return;
@@ -74,62 +72,7 @@
     status.hidden = !text;
   }
 
-  function setSending(sending) {
-    if (!submitBtn) return;
-    submitBtn.disabled = sending;
-    submitBtn.textContent = sending ? 'Enviando…' : 'Enviar mensaje';
-  }
-
-  function accessKey() {
-    var input = form.elements.access_key;
-    return input ? input.value.trim() : '';
-  }
-
-  function hasRealKey() {
-    var key = accessKey();
-    return key && !/^\[.*\]$/.test(key);
-  }
-
-  /* --- Envío --- */
-
-  function send() {
-    var payload = {
-      access_key: accessKey(),
-      subject: form.elements.subject ? form.elements.subject.value : 'Nuevo mensaje desde el portafolio',
-      from_name: form.elements.from_name ? form.elements.from_name.value : 'Portafolio',
-      name: form.elements.name.value.trim(),
-      email: form.elements.email.value.trim(),
-      message: form.elements.message.value.trim(),
-      botcheck: form.elements.botcheck ? form.elements.botcheck.checked : false
-    };
-
-    setSending(true);
-    setStatus('Enviando…', '');
-
-    return fetch(ENDPOINT, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-      body: JSON.stringify(payload)
-    })
-      .then(function (response) {
-        return response.json().then(function (data) {
-          if (!response.ok || !data.success) {
-            throw new Error(data.message || 'Error del servicio');
-          }
-          return data;
-        });
-      })
-      .then(function () {
-        setStatus('✓ Mensaje enviado. ¡Gracias!', 'success');
-        form.reset();
-      })
-      .catch(function () {
-        setStatus('✕ No se pudo enviar. Inténtalo de nuevo o escribe al correo.', 'error');
-      })
-      .then(function () {
-        setSending(false);
-      });
-  }
+  /* --- Envío (simulado): confirma y limpia --- */
 
   function onSubmit(event) {
     event.preventDefault();
@@ -137,23 +80,11 @@
 
     if (!validateAll()) return;
 
-    /* Honeypot marcado: probable bot, se ignora en silencio */
-    if (form.elements.botcheck && form.elements.botcheck.checked) {
-      setStatus('✓ Mensaje enviado. ¡Gracias!', 'success');
-      form.reset();
-      return;
-    }
-
-    if (!hasRealKey()) {
-      /* Sin clave configurada no hay entrega real: se avisa con claridad */
-      setStatus('✓ Formulario válido (demo). Configura la access_key de Web3Forms para enviar de verdad.', 'success');
-      return;
-    }
-
-    send();
+    form.reset();
+    setStatus('✓ Mensaje enviado', 'success');
   }
 
-  /* El error de un campo se limpia al escribir y se resetea el estado "enviado" */
+  /* El error de un campo se limpia al escribir y se oculta la confirmación */
   function onInput(event) {
     var input = event.target;
     if (!input.name || !validators()[input.name]) return;
@@ -165,7 +96,6 @@
     form = document.getElementById('contact-form');
     if (!form) return;
     status = document.getElementById('form-status');
-    submitBtn = document.getElementById('submit-btn');
 
     form.addEventListener('submit', onSubmit);
     form.addEventListener('input', onInput);

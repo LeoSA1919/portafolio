@@ -1162,7 +1162,7 @@ textarea.field__input {
   padding-top: var(--sp-1);
 }
 
-/* Estado del envío: enviando / enviado / error */
+/* Confirmación junto al botón de enviar */
 .form__status {
   font-family: var(--font-mono);
   font-size: .75rem;
@@ -1179,15 +1179,6 @@ textarea.field__input {
 
 .form__status[hidden] {
   display: none;
-}
-
-/* Campo trampa anti-spam (honeypot): oculto a personas, visible a bots */
-.form__honeypot {
-  position: absolute;
-  left: -9999px;
-  width: 1px;
-  height: 1px;
-  opacity: 0;
 }
 
 /* ==========================================================================

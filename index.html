@@ -267,18 +267,8 @@
           <a class="contact__email" href="mailto:leomino1214@gmail.com">leomino1214@gmail.com</a>
         </div>
 
-        <!-- Validación propia en js/contact.js (novalidate) y envío real vía Web3Forms -->
-        <form class="form" id="contact-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
-          <!-- Clave de acceso de Web3Forms: reemplazar por la clave real -->
-          <input type="hidden" name="access_key" value="[WEB3FORMS_ACCESS_KEY]">
-          <input type="hidden" name="subject" value="Nuevo mensaje desde el portafolio">
-          <input type="hidden" name="from_name" value="Portafolio de Cesar Miño">
-          <!-- Honeypot anti-spam: debe quedar vacío -->
-          <div class="form__honeypot" aria-hidden="true">
-            <label for="botcheck">No rellenar</label>
-            <input type="checkbox" id="botcheck" name="botcheck" tabindex="-1" autocomplete="off">
-          </div>
-
+        <!-- Validación y confirmación en js/contact.js (novalidate); no envía a ningún servicio -->
+        <form class="form" id="contact-form" novalidate>
           <div class="field">
             <label class="field__label" for="name">Nombre</label>
             <input class="field__input" id="name" name="name" type="text" placeholder="Tu nombre" autocomplete="name" aria-describedby="name-error">
