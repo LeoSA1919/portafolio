@@ -1,6 +1,6 @@
-# Portafolio web — Cesar Miño
+# Portafolio web — Leandro
 
-Portafolio personal de una sola página para Cesar Miño, desarrollador de software (backend) y estudiante de octavo semestre de Ingeniería de Software. Construido con HTML semántico, CSS con variables y JavaScript vanilla, sin frameworks ni build, listo para GitHub Pages.
+Portafolio personal de una sola página de Leandro, desarrollador de software (backend) y estudiante de octavo semestre de Ingeniería de Software. Construido con HTML semántico, CSS con variables y JavaScript vanilla, sin frameworks ni build, listo para GitHub Pages.
 
 **Sitio publicado:** https://[GITHUB_USER].github.io/portafolio/
 
