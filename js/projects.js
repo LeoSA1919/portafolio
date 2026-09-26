@@ -48,12 +48,12 @@
 
   /* --- Tarjetas --- */
 
+  /* Imagen del proyecto (ruta relativa, funciona también con file://).
+     imagePosition permite elegir la zona visible al recortar a 16:10. */
   function mediaHtml(project) {
-    var alt = 'Captura de pantalla del proyecto ' + project.title;
-    if (isRealUrl(project.image)) {
-      return '<img src="' + esc(project.image) + '" alt="' + esc(alt) + '" loading="lazy">';
-    }
-    return '<span class="placeholder-label">' + esc(project.imageLabel || (project.title + ' · captura 16:10')) + '</span>';
+    var alt = project.imageAlt || ('Captura de pantalla del proyecto ' + project.title);
+    var style = project.imagePosition ? ' style="object-position: ' + esc(project.imagePosition) + '"' : '';
+    return '<img src="' + esc(project.image) + '" alt="' + esc(alt) + '" loading="lazy"' + style + '>';
   }
 
   function linkHtml(url, glyph, label, extraClass) {

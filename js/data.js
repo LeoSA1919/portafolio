@@ -7,7 +7,10 @@
 
 window.PORTFOLIO_DATA = {
 
-  /* --- Proyectos (cada uno se renderiza como <article>) --- */
+  /* --- Proyectos (cada uno se renderiza como <article>).
+         image = ruta relativa a la captura; imageAlt = texto alternativo;
+         imagePosition (opcional) = object-position para elegir qué zona de
+         la captura queda visible al recortarla a 16:10. --- */
   projects: [
     {
       id: 'chatbot-skytech',
@@ -20,8 +23,8 @@ window.PORTFOLIO_DATA = {
       tags: ['Python', 'Django'],
       repo: '[PLACEHOLDER]',
       demo: '[PLACEHOLDER]',
-      image: '',
-      imageLabel: 'Chatbot Skytech-Geo · captura 16:10'
+      image: 'assets/img/proyecto-sky.png',
+      imageAlt: 'Captura del chatbot de cotizaciones de Skytech-Geo'
     },
     {
       id: 'chatbot-infraopera',
@@ -34,8 +37,9 @@ window.PORTFOLIO_DATA = {
       tags: ['Python', 'Django'],
       repo: '[PLACEHOLDER]',
       demo: '[PLACEHOLDER]',
-      image: '',
-      imageLabel: 'Chatbot InfraOpera · captura 16:10'
+      image: 'assets/img/proyecto-infraopera.png',
+      imageAlt: 'Captura del chatbot de InfraOpera',
+      imagePosition: 'center top'
     },
     {
       id: 'stripe-readyfy',
@@ -48,8 +52,8 @@ window.PORTFOLIO_DATA = {
       tags: ['Django', 'Stripe'],
       repo: '[PLACEHOLDER]',
       demo: '[PLACEHOLDER]',
-      image: '',
-      imageLabel: 'Stripe en ReadyFy · captura 16:10'
+      image: 'assets/img/proyecto-readyfy.png',
+      imageAlt: 'Captura de la pantalla de suscripción de ReadyFy'
     }
   ],
 
