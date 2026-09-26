@@ -109,8 +109,6 @@ El formulario valida en el cliente (nombre obligatorio, correo con formato váli
 | Placeholder | Dónde |
 |---|---|
 | Foto del hero | Ya incluida en `assets/img/hero.jpg` (`<img>` en el hero); para cambiarla, reemplaza el archivo |
-| `[CORREO]` | `index.html` (sección Contacto, `mailto:` y texto) |
-| `[GITHUB]`, `[LINKEDIN]` | `index.html` (sección Contacto) |
 | `[GITHUB_USER]` | este README (URL del sitio y remoto) |
 
 ## Licencia
