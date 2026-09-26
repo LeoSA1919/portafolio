@@ -2,15 +2,13 @@
 
 Portafolio personal de una sola página de Leandro, desarrollador de software (backend) y estudiante de octavo semestre de Ingeniería de Software. Construido con HTML semántico, CSS con variables y JavaScript vanilla, sin frameworks ni build, listo para GitHub Pages.
 
-**Sitio publicado:** https://[GITHUB_USER].github.io/portafolio/
+**Sitio publicado:** https://leosa1919.github.io/portafolio/
 
 ## Capturas
 
 | Escritorio (oscuro) | Móvil | Tema claro |
 |---|---|---|
-| ![Captura escritorio](assets/img/captura-escritorio.png) | ![Captura móvil](assets/img/captura-movil.png) | ![Captura tema claro](assets/img/captura-claro.png) |
-
-> Las capturas son placeholders: guarda tus imágenes en `assets/img/` con esos nombres.
+| ![Captura escritorio](assets/img/captura-escritorio.png) | ![Captura móvil](assets/img/captura-movil.png) | ![Captura tema claro](assets/img/captura-tema-claro.png) |
 
 ## Tecnologías
 
@@ -85,14 +83,14 @@ y abre http://localhost:8080.
 2. Conecta y sube el código:
 
 ```bash
-git remote add origin https://github.com/[GITHUB_USER]/portafolio.git
+git remote add origin https://github.com/LeoSA1919/portafolio.git
 git push -u origin main
 ```
 
 3. En el repositorio: **Settings → Pages → Build and deployment**:
    - Source: *Deploy from a branch*
    - Branch: `main` · Folder: `/ (root)` → **Save**
-4. En uno o dos minutos el sitio queda en `https://[GITHUB_USER].github.io/portafolio/`.
+4. En uno o dos minutos el sitio queda en https://leosa1919.github.io/portafolio/.
 
 Si tienes GitHub CLI instalado, los pasos 1 y 2 se reducen a:
 
@@ -104,12 +102,11 @@ gh repo create portafolio --public --source=. --remote=origin --push
 
 El formulario valida en el cliente (nombre obligatorio, correo con formato válido, mensaje de al menos 10 caracteres) y, si todo es correcto, muestra "✓ Mensaje enviado" y limpia los campos. No envía datos a ningún servicio; el contacto real es por correo.
 
-## Placeholders a reemplazar
+## Personalización
 
-| Placeholder | Dónde |
-|---|---|
-| Foto del hero | Ya incluida en `assets/img/hero.jpg` (`<img>` en el hero); para cambiarla, reemplaza el archivo |
-| `[GITHUB_USER]` | este README (URL del sitio y remoto) |
+- Foto del hero: reemplaza `assets/img/hero.jpg` (proporción 4:5).
+- Proyectos, habilidades, paleta y espaciado: edita `js/data.js`.
+- Capturas de proyectos: `assets/img/proyecto-*.png`, referenciadas desde `js/data.js`.
 
 ## Licencia
 
